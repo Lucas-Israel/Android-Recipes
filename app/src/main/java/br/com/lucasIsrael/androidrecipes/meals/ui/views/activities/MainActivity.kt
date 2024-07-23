@@ -1,10 +1,11 @@
-package br.com.lucasIsrael.androidrecipes
+package br.com.lucasIsrael.androidrecipes.meals.ui.views.activities
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import br.com.lucasIsrael.androidrecipes.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
