@@ -1,7 +1,7 @@
 package br.com.lucasIsrael.androidrecipes.meals.categories.data.network
 
 import br.com.lucasIsrael.androidrecipes.meals.categories.data.model.Categories
-import br.com.lucasIsrael.androidrecipes.meals.categories.data.model.ClientResult
+import br.com.lucasIsrael.androidrecipes.meals.core.model.ClientResult
 
 interface CategoriesDataSource {
 
