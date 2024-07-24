@@ -1,10 +1,10 @@
-package br.com.lucasIsrael.androidrecipes.meals.ui.viewmodels
+package br.com.lucasIsrael.androidrecipes.meals.categories.ui.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.com.lucasIsrael.androidrecipes.meals.data.model.Categories
-import br.com.lucasIsrael.androidrecipes.meals.data.repository.CategoriesRepository
+import br.com.lucasIsrael.androidrecipes.meals.categories.data.model.Categories
+import br.com.lucasIsrael.androidrecipes.meals.categories.data.repository.CategoriesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

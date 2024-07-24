@@ -1,4 +1,4 @@
-package br.com.lucasIsrael.androidrecipes.meals.data.model
+package br.com.lucasIsrael.androidrecipes.meals.categories.data.model
 
 data class Category(
     val idCategory: String,

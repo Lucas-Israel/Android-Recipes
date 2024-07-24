@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".meals.ui.views.activities.MainActivity">
+    tools:context=".meals.categories.ui.views.activities.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/main_fragment_container"
-        android:name="br.com.lucasIsrael.androidrecipes.meals.ui.views.fragments.CategoriesFragment"
+        android:name="br.com.lucasIsrael.androidrecipes.meals.categories.ui.views.fragments.CategoriesFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>

@@ -1,4 +1,4 @@
-package br.com.lucasIsrael.androidrecipes.meals.ui.adapters
+package br.com.lucasIsrael.androidrecipes.meals.categories.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import br.com.lucasIsrael.androidrecipes.R
 import br.com.lucasIsrael.androidrecipes.databinding.ListItemCategoryBinding
-import br.com.lucasIsrael.androidrecipes.meals.data.model.Category
+import br.com.lucasIsrael.androidrecipes.meals.categories.data.model.Category
 import coil.load
 import coil.transform.CircleCropTransformation
 

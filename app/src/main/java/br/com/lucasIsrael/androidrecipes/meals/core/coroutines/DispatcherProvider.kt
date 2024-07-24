@@ -1,4 +1,4 @@
-package br.com.lucasIsrael.androidrecipes.meals.data.coroutines
+package br.com.lucasIsrael.androidrecipes.meals.core.coroutines
 
 import kotlinx.coroutines.Dispatchers
 import kotlin.coroutines.CoroutineContext

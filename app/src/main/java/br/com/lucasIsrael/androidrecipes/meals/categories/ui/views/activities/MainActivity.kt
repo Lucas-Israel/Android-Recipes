@@ -1,4 +1,4 @@
-package br.com.lucasIsrael.androidrecipes.meals.ui.views.activities
+package br.com.lucasIsrael.androidrecipes.meals.categories.ui.views.activities
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

@@ -1,4 +1,4 @@
-package br.com.lucasIsrael.androidrecipes.meals.data.model
+package br.com.lucasIsrael.androidrecipes.meals.categories.data.model
 
 sealed class ClientResult<out T> {
 
