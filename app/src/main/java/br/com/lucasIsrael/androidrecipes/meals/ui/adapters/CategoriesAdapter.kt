@@ -4,8 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import br.com.lucasIsrael.androidrecipes.R
 import br.com.lucasIsrael.androidrecipes.databinding.ListItemCategoryBinding
 import br.com.lucasIsrael.androidrecipes.meals.data.model.Category
+import coil.load
+import coil.transform.CircleCropTransformation
 
 class CategoriesAdapter(private val categories: List<Category>) :
     RecyclerView.Adapter<CategoriesAdapter.CategoriesViewHolder>() {
@@ -17,6 +20,11 @@ class CategoriesAdapter(private val categories: List<Category>) :
         fun bind(category: Category) {
             binding.categoryNameTextview.text = category.strCategory
             binding.categoryDescriptionTextview.text = category.strCategoryDescription
+            binding.categoryThumb.load(category.strCategoryThumb)  {
+                crossfade(true)
+                placeholder(R.drawable.ic_launcher_background)
+                transformations(CircleCropTransformation())
+            }
         }
     }
 
