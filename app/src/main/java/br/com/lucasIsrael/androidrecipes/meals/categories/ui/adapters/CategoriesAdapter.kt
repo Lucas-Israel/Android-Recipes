@@ -2,6 +2,7 @@ package br.com.lucasIsrael.androidrecipes.meals.categories.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import br.com.lucasIsrael.androidrecipes.R
@@ -39,6 +40,11 @@ class CategoriesAdapter(private val categories: List<Category>) :
     }
 
     override fun onBindViewHolder(holder: CategoriesViewHolder, position: Int) {
+
+        holder.itemView.setOnClickListener {
+            Navigation.findNavController(holder.itemView).navigate(R.id.action_categoriesFragment_to_categoryFragment)
+        }
+
         holder.bind(categories[position])
     }
 }
