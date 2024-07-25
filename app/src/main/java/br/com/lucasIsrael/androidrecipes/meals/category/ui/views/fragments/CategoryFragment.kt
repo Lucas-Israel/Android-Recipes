@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import br.com.lucasIsrael.androidrecipes.R
 import br.com.lucasIsrael.androidrecipes.databinding.FragmentCategoryBinding
 import br.com.lucasIsrael.androidrecipes.meals.category.ui.adapter.CategoryAdapter
@@ -21,6 +21,7 @@ class CategoryFragment : Fragment() {
     private lateinit var binding: FragmentCategoryBinding
     private val viewModel: CategoryViewModel by viewModels()
     private lateinit var recyclerView: RecyclerView
+    private val args: CategoryFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,8 +41,8 @@ class CategoryFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        //TODO this will be removed, its just a test for now
-        viewModel.getCategory("Beef")
+        val categoryName = args.categoryName
+        viewModel.getCategory(categoryName)
         viewModel.meals.observe(this) {
             recyclerView.adapter = CategoryAdapter(it)
         }
