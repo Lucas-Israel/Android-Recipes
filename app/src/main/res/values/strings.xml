@@ -2,4 +2,10 @@
     <string name="app_name">Android Recipes</string>
     <string name="category_image">category image</string>
     <string name="meal_image">meal image</string>
+    <string name="category">Category</string>
+    <string name="recipe_image">recipe image</string>
+    <string name="area">Area</string>
+    <string name="tags">Tags</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="ingr_measure">Measure</string>
 </resources>
