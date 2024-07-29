@@ -16,11 +16,19 @@
         android:id="@+id/categoryFragment"
         android:name="br.com.lucasIsrael.androidrecipes.meals.category.ui.views.fragments.CategoryFragment"
         android:label="CategoryFragment" >
-        <action
-            android:id="@+id/action_categoryFragment_to_categoriesFragment"
-            app:destination="@id/categoriesFragment" />
         <argument
             android:name="categoryName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_categoryFragment_to_recipeFragment"
+            app:destination="@id/recipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeFragment"
+        android:name="br.com.lucasIsrael.androidrecipes.meals.recipe.ui.views.fragments.RecipeFragment"
+        android:label="RecipeFragment" >
+        <argument
+            android:name="recipeId"
             app:argType="string" />
     </fragment>
 </navigation>
