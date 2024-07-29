@@ -2,11 +2,13 @@ package br.com.lucasIsrael.androidrecipes.meals.category.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import br.com.lucasIsrael.androidrecipes.R
 import br.com.lucasIsrael.androidrecipes.databinding.ListItemMealsBinding
 import br.com.lucasIsrael.androidrecipes.meals.category.data.model.CategoryMeal
 import br.com.lucasIsrael.androidrecipes.meals.category.data.model.Meals
+import br.com.lucasIsrael.androidrecipes.meals.category.ui.views.fragments.CategoryFragmentDirections
 import coil.load
 import coil.transform.CircleCropTransformation
 
@@ -40,7 +42,14 @@ class CategoryAdapter(private val meals: Meals) :
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        holder.bind(meals.meals[position])
+        val item = meals.meals[position]
+
+        holder.itemView.setOnClickListener {
+            val action = CategoryFragmentDirections.actionCategoryFragmentToRecipeFragment(item.idMeal)
+            holder.itemView.findNavController().navigate(action)
+        }
+
+        holder.bind(item)
     }
 
 }
