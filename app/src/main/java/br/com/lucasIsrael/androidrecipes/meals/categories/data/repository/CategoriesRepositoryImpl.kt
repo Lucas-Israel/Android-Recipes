@@ -1,32 +1,20 @@
 package br.com.lucasIsrael.androidrecipes.meals.categories.data.repository
 
+import android.os.Build
+import androidx.annotation.RequiresExtension
 import br.com.lucasIsrael.androidrecipes.meals.categories.data.model.Categories
-import br.com.lucasIsrael.androidrecipes.meals.core.model.ClientResult
+import br.com.lucasIsrael.androidrecipes.common.model.ClientResult
 import br.com.lucasIsrael.androidrecipes.meals.categories.data.network.CategoriesDataSource
-import br.com.lucasIsrael.androidrecipes.meals.core.coroutines.DispatcherProvider
-import kotlinx.coroutines.withContext
-import java.net.ConnectException
+import br.com.lucasIsrael.androidrecipes.common.coroutines.safeApiCall
 import javax.inject.Inject
 
 class CategoriesRepositoryImpl @Inject constructor(private val dataSource: CategoriesDataSource) :
     CategoriesRepository {
 
-    override suspend fun getCategories(): Categories {
-        lateinit var payload: Categories
-
-        withContext(DispatcherProvider.IO) {
-
-            val response = dataSource.getCategories()
-
-            if (response is ClientResult.ClientSuccess) {
-                payload = response.data
-            }
-
-            if (response is ClientResult.ClientError) {
-                throw ConnectException(response.errorMessage)
-            }
+    @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
+    override suspend fun getCategories(): ClientResult<Categories> {
+        return safeApiCall {
+            dataSource.getCategories()
         }
-
-        return payload
     }
 }
