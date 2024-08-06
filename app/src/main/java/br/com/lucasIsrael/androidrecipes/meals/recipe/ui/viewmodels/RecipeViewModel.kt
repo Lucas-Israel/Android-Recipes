@@ -3,7 +3,7 @@ package br.com.lucasIsrael.androidrecipes.meals.recipe.ui.viewmodels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.lucasIsrael.androidrecipes.common.model.ClientResult
-import br.com.lucasIsrael.androidrecipes.meals.recipe.data.model.Recipe
+import br.com.lucasIsrael.androidrecipes.meals.recipe.data.model.Meals
 import br.com.lucasIsrael.androidrecipes.meals.recipe.data.repository.RecipeRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CancellationException
@@ -16,8 +16,8 @@ import javax.inject.Inject
 class RecipeViewModel @Inject constructor(private val recipeRepository: RecipeRepository) :
     ViewModel() {
 
-    private val _recipe = MutableStateFlow<Recipe?>(null)
-    val recipe: MutableStateFlow<Recipe?>
+    private val _recipe = MutableStateFlow<Meals>(Meals(listOf()))
+    val recipe: MutableStateFlow<Meals>
         get() = _recipe
 
     private val _fetchError = MutableStateFlow(false)
@@ -29,7 +29,7 @@ class RecipeViewModel @Inject constructor(private val recipeRepository: RecipeRe
             try {
                 when (val response = recipeRepository.getRecipe(id)) {
                     is ClientResult.ClientSuccess -> {
-                        _recipe.value = response.data.meals[0]
+                        _recipe.value = response.data
                         _fetchError.value = false
                     }
 
