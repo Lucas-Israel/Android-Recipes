@@ -1,4 +1,4 @@
-package br.com.lucasIsrael.androidrecipes.meals.core.model
+package br.com.lucasIsrael.androidrecipes.common.model
 
 sealed class ClientResult<out T> {
 
@@ -10,8 +10,8 @@ sealed class ClientResult<out T> {
 
     /**
      * Exception when the service response results in error
-     * @param errorCode the code received from a failed request
-     * @param errorMessage the message received from a failed request
+     * @param isServerError if the error was in the server
+     * @param isNetworkError if the error is related to the network
      */
-    data class ClientError(val errorCode: Int, val errorMessage: String) : ClientResult<Nothing>()
+    data class ClientError(val isServerError: Boolean, val isNetworkError: Boolean) : ClientResult<Nothing>()
 }
