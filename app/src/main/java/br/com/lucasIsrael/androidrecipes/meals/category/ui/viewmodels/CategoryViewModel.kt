@@ -1,24 +1,24 @@
 package br.com.lucasIsrael.androidrecipes.meals.category.ui.viewmodels
 
-import androidx.lifecycle.MutableLiveData
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.com.lucasIsrael.androidrecipes.meals.category.data.model.CategoryMeal
+import br.com.lucasIsrael.androidrecipes.common.model.ClientResult
 import br.com.lucasIsrael.androidrecipes.meals.category.data.model.Meals
 import br.com.lucasIsrael.androidrecipes.meals.category.data.repository.CategoryRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import java.net.ConnectException
 import javax.inject.Inject
 
 @HiltViewModel
 class CategoryViewModel @Inject constructor(private val repository: CategoryRepository) :
     ViewModel() {
 
-    private val _meals = MutableLiveData<Meals>()
-    val meals: MutableLiveData<Meals>
+    private val _meals = MutableStateFlow<Meals>(Meals(listOf()))
+    val meals: MutableStateFlow<Meals>
         get() = _meals
 
     private val _fetchError = MutableStateFlow(false)
@@ -28,10 +28,18 @@ class CategoryViewModel @Inject constructor(private val repository: CategoryRepo
     fun getCategory(category: String) {
         viewModelScope.launch {
             try {
-                val response = repository.getCategory(category)
-                _meals.postValue(response)
-                _fetchError.value = false
-            } catch (e: ConnectException) {
+                when (val response = repository.getCategory(category)) {
+                    is ClientResult.ClientSuccess -> {
+                        _meals.value = response.data
+                        _fetchError.value = false
+                    }
+
+                    is ClientResult.ClientError -> {
+                        _fetchError.value = true
+                    }
+                }
+            } catch (e: CancellationException) {
+                Log.e(e.stackTrace.toString(), e.message.toString())
                 _fetchError.value = true
             }
         }
