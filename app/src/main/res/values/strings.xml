@@ -8,4 +8,8 @@
     <string name="tags">Tags</string>
     <string name="ingredients">Ingredients</string>
     <string name="ingr_measure">Measure</string>
+    <string name="category_name">Category name</string>
+    <string name="area_name">Area name</string>
+    <string name="tags_data">Tags data</string>
+    <string name="recipe_name">Recipe Name</string>
 </resources>
