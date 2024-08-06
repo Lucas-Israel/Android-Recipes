@@ -1,6 +1,6 @@
 package br.com.lucasIsrael.androidrecipes.meals.categories.di
 
-import br.com.lucasIsrael.androidrecipes.BuildConfig.BASE_URL
+import br.com.lucasIsrael.androidrecipes.BuildConfig.MEAL_URL
 import br.com.lucasIsrael.androidrecipes.meals.categories.data.api.CategoriesApiService
 import br.com.lucasIsrael.androidrecipes.meals.categories.data.network.CategoriesDataSource
 import br.com.lucasIsrael.androidrecipes.meals.categories.data.network.CategoriesDataSourceImpl
@@ -22,7 +22,7 @@ object CategoriesModule {
     @Singleton
     fun provideApiService() : CategoriesApiService {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(MEAL_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(CategoriesApiService::class.java)

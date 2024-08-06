@@ -1,6 +1,6 @@
 package br.com.lucasIsrael.androidrecipes.meals.recipe.di
 
-import br.com.lucasIsrael.androidrecipes.BuildConfig.BASE_URL
+import br.com.lucasIsrael.androidrecipes.BuildConfig.MEAL_URL
 import br.com.lucasIsrael.androidrecipes.meals.recipe.data.api.RecipeApiService
 import br.com.lucasIsrael.androidrecipes.meals.recipe.data.network.RecipeDataSource
 import br.com.lucasIsrael.androidrecipes.meals.recipe.data.network.RecipeDataSourceImpl
@@ -23,7 +23,7 @@ object RecipeModule {
     @Singleton
     fun provideRecipeApiService(): RecipeApiService {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(MEAL_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(RecipeApiService::class.java)
