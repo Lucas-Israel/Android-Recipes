@@ -1,11 +1,11 @@
 package br.com.lucasIsrael.androidrecipes.meals.category.di
 
+import br.com.lucasIsrael.androidrecipes.BuildConfig.BASE_URL
 import br.com.lucasIsrael.androidrecipes.meals.category.data.api.CategoryApiService
 import br.com.lucasIsrael.androidrecipes.meals.category.data.network.CategoryDataSource
 import br.com.lucasIsrael.androidrecipes.meals.category.data.network.CategoryDataSourceImpl
 import br.com.lucasIsrael.androidrecipes.meals.category.data.repository.CategoryRepository
 import br.com.lucasIsrael.androidrecipes.meals.category.data.repository.CategoryRepositoryImpl
-import br.com.lucasIsrael.androidrecipes.common.config.Configs.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -22,6 +22,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField "String", "BASE_URL", BASE_URL
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -37,6 +40,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        buildConfig true
     }
 }
 
@@ -73,11 +77,11 @@ dependencies {
     kaptAndroidTest libs.hilt.compiler
 
     // For local unit tests
-    testImplementation 'com.google.dagger:hilt-android-testing:2.51.1'
-    kaptTest 'com.google.dagger:hilt-compiler:2.51.1'
+    testImplementation libs.hilt.android.testing
+    kaptTest libs.hilt.compiler
 
     // coil used to load images
-    implementation("io.coil-kt:coil:2.7.0")
+    implementation(libs.coil)
 }
 
 kapt {
