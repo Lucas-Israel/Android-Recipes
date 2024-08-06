@@ -8,18 +8,20 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import br.com.lucasIsrael.androidrecipes.R
 import br.com.lucasIsrael.androidrecipes.databinding.RecipeFragmentBinding
+import br.com.lucasIsrael.androidrecipes.meals.recipe.ui.adapter.RecipeAdapter
 import br.com.lucasIsrael.androidrecipes.meals.recipe.ui.viewmodels.RecipeViewModel
-import coil.load
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class RecipeFragment : Fragment() {
 
-    private lateinit var binding :RecipeFragmentBinding
     private val viewModel: RecipeViewModel by viewModels()
+    private lateinit var recyclerView: RecyclerView
     private val args: RecipeFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -32,6 +34,12 @@ class RecipeFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        recyclerView = view.findViewById(R.id.recipe_recycler_view)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+    }
+
     override fun onStart() {
         super.onStart()
         val recipeId = args.recipeId
@@ -39,11 +47,7 @@ class RecipeFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.recipe.collect {
-                binding.recipeTextviewName.text = it?.strMeal
-                binding.recipeCategoryNameData.text = it?.strCategory
-                binding.recipeAreaNameData.text = it?.strArea
-                binding.recipeTagsData.text = it?.strTags
-                binding.recipeImageview.load(it?.strMealThumb)
+                recyclerView.adapter = RecipeAdapter(it)
             }
         }
     }
