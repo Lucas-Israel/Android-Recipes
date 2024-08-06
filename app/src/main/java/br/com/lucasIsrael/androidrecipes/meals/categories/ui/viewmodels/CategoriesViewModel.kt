@@ -1,6 +1,5 @@
 package br.com.lucasIsrael.androidrecipes.meals.categories.ui.viewmodels
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.lucasIsrael.androidrecipes.common.model.ClientResult
@@ -39,7 +38,7 @@ class CategoriesViewModel @Inject constructor(private val repository: Categories
                     }
                 }
             } catch (e: CancellationException) {
-                Log.e(e.stackTrace.toString(), e.message.toString())
+                e.printStackTrace()
                 _fetchError.value = true
             }
         }
