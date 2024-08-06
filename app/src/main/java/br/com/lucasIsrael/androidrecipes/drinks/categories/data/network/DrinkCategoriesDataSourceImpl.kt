@@ -4,7 +4,7 @@ import br.com.lucasIsrael.androidrecipes.drinks.categories.data.api.DrinkCategor
 import br.com.lucasIsrael.androidrecipes.drinks.categories.data.model.DrinkCategories
 import javax.inject.Inject
 
-class DrinkCategoriesImpl @Inject constructor(private val apiService: DrinkCategoriesApiService) :
+class DrinkCategoriesDataSourceImpl @Inject constructor(private val apiService: DrinkCategoriesApiService) :
     DrinkCategoriesDataSource {
 
     override suspend fun getCategories(): DrinkCategories {
