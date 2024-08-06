@@ -1,4 +1,4 @@
-package br.com.lucasIsrael.androidrecipes.meals.categories.ui.adapters
+package br.com.lucasIsrael.androidrecipes.meals.categories.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import br.com.lucasIsrael.androidrecipes.R
 import br.com.lucasIsrael.androidrecipes.databinding.ListItemCategoriesBinding
 import br.com.lucasIsrael.androidrecipes.meals.categories.data.model.Category
-import br.com.lucasIsrael.androidrecipes.meals.categories.ui.views.fragments.CategoriesFragmentDirections
+import br.com.lucasIsrael.androidrecipes.meals.categories.ui.fragment.CategoriesFragmentDirections
 import coil.load
 import coil.transform.CircleCropTransformation
 

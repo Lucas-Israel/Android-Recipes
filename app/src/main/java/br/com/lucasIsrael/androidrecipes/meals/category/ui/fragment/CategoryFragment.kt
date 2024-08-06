@@ -1,4 +1,4 @@
-package br.com.lucasIsrael.androidrecipes.meals.category.ui.views.fragments
+package br.com.lucasIsrael.androidrecipes.meals.category.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.lucasIsrael.androidrecipes.R
 import br.com.lucasIsrael.androidrecipes.databinding.FragmentCategoryBinding
 import br.com.lucasIsrael.androidrecipes.meals.category.ui.adapter.CategoryAdapter
-import br.com.lucasIsrael.androidrecipes.meals.category.ui.viewmodels.CategoryViewModel
+import br.com.lucasIsrael.androidrecipes.meals.category.ui.viewmodel.CategoryViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

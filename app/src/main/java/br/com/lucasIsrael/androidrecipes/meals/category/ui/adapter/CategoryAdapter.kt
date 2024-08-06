@@ -8,7 +8,7 @@ import br.com.lucasIsrael.androidrecipes.R
 import br.com.lucasIsrael.androidrecipes.databinding.ListItemMealsBinding
 import br.com.lucasIsrael.androidrecipes.meals.category.data.model.CategoryMeal
 import br.com.lucasIsrael.androidrecipes.meals.category.data.model.Meals
-import br.com.lucasIsrael.androidrecipes.meals.category.ui.views.fragments.CategoryFragmentDirections
+import br.com.lucasIsrael.androidrecipes.meals.category.ui.fragment.CategoryFragmentDirections
 import coil.load
 import coil.transform.CircleCropTransformation
 

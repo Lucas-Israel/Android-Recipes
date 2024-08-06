@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/categoriesFragment"
-        android:name="br.com.lucasIsrael.androidrecipes.meals.categories.ui.views.fragments.CategoriesFragment"
+        android:name="br.com.lucasIsrael.androidrecipes.meals.categories.ui.fragment.CategoriesFragment"
         android:label="CategoriesFragment" >
         <action
             android:id="@+id/action_categoriesFragment_to_categoryFragment"
@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/categoryFragment"
-        android:name="br.com.lucasIsrael.androidrecipes.meals.category.ui.views.fragments.CategoryFragment"
+        android:name="br.com.lucasIsrael.androidrecipes.meals.category.ui.fragment.CategoryFragment"
         android:label="CategoryFragment" >
         <argument
             android:name="categoryName"
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/recipeFragment"
-        android:name="br.com.lucasIsrael.androidrecipes.meals.recipe.ui.views.fragments.RecipeFragment"
+        android:name="br.com.lucasIsrael.androidrecipes.meals.recipe.ui.fragment.RecipeFragment"
         android:label="RecipeFragment" >
         <argument
             android:name="recipeId"

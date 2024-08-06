@@ -1,10 +1,10 @@
-package br.com.lucasIsrael.androidrecipes.meals.categories.ui.viewmodels
+package br.com.lucasIsrael.androidrecipes.meals.category.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.lucasIsrael.androidrecipes.common.model.ClientResult
-import br.com.lucasIsrael.androidrecipes.meals.categories.data.model.Categories
-import br.com.lucasIsrael.androidrecipes.meals.categories.data.repository.CategoriesRepository
+import br.com.lucasIsrael.androidrecipes.meals.category.data.model.Meals
+import br.com.lucasIsrael.androidrecipes.meals.category.data.repository.CategoryRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,23 +13,23 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CategoriesViewModel @Inject constructor(private val repository: CategoriesRepository) :
+class CategoryViewModel @Inject constructor(private val repository: CategoryRepository) :
     ViewModel() {
 
-    private val _categories = MutableStateFlow<Categories>(Categories(listOf()))
-    val categories: MutableStateFlow<Categories>
-        get() = _categories
+    private val _meals = MutableStateFlow<Meals>(Meals(listOf()))
+    val meals: MutableStateFlow<Meals>
+        get() = _meals
 
     private val _fetchError = MutableStateFlow(false)
     val fetchError: StateFlow<Boolean>
         get() = _fetchError
 
-    fun getCategories() {
+    fun getCategory(category: String) {
         viewModelScope.launch {
             try {
-                when (val response = repository.getCategories()) {
+                when (val response = repository.getCategory(category)) {
                     is ClientResult.ClientSuccess -> {
-                        _categories.value = response.data
+                        _meals.value = response.data
                         _fetchError.value = false
                     }
 
@@ -43,4 +43,5 @@ class CategoriesViewModel @Inject constructor(private val repository: Categories
             }
         }
     }
+
 }

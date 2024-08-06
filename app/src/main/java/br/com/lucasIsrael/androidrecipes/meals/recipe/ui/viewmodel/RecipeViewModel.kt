@@ -1,4 +1,4 @@
-package br.com.lucasIsrael.androidrecipes.meals.recipe.ui.viewmodels
+package br.com.lucasIsrael.androidrecipes.meals.recipe.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
