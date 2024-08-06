@@ -6,17 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import br.com.lucasIsrael.androidrecipes.R
 import br.com.lucasIsrael.androidrecipes.databinding.RecipeFragmentBinding
 import br.com.lucasIsrael.androidrecipes.meals.recipe.ui.viewmodels.RecipeViewModel
 import coil.load
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class RecipeFragment: Fragment() {
+class RecipeFragment : Fragment() {
 
-    private lateinit var binding: RecipeFragmentBinding
+    private lateinit var binding :RecipeFragmentBinding
     private val viewModel: RecipeViewModel by viewModels()
     private val args: RecipeFragmentArgs by navArgs()
 
@@ -26,7 +28,7 @@ class RecipeFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val view = inflater.inflate(R.layout.recipe_fragment, container, false)
-        binding = RecipeFragmentBinding.bind(view)
+        val binding = RecipeFragmentBinding.bind(view)
         return binding.root
     }
 
@@ -35,12 +37,14 @@ class RecipeFragment: Fragment() {
         val recipeId = args.recipeId
         viewModel.getRecipe(recipeId)
 
-        viewModel.recipe.observe(this) {
-            binding.recipeTextviewName.text = it.strMeal
-            binding.recipeCategoryNameData.text = it.strCategory
-            binding.recipeAreaNameData.text = it.strArea
-            binding.recipeTagsData.text = it.strTags
-            binding.recipeImageview.load(it.strMealThumb)
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.recipe.collect {
+                binding.recipeTextviewName.text = it?.strMeal
+                binding.recipeCategoryNameData.text = it?.strCategory
+                binding.recipeAreaNameData.text = it?.strArea
+                binding.recipeTagsData.text = it?.strTags
+                binding.recipeImageview.load(it?.strMealThumb)
+            }
         }
     }
 }

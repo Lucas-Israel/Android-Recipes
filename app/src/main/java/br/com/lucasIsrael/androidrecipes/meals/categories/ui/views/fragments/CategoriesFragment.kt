@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.lucasIsrael.androidrecipes.R
@@ -13,11 +14,11 @@ import br.com.lucasIsrael.androidrecipes.databinding.FragmentCategoriesBinding
 import br.com.lucasIsrael.androidrecipes.meals.categories.ui.adapters.CategoriesAdapter
 import br.com.lucasIsrael.androidrecipes.meals.categories.ui.viewmodels.CategoriesViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class CategoriesFragment: Fragment() {
+class CategoriesFragment : Fragment() {
 
-    private lateinit var binding: FragmentCategoriesBinding
     private val viewModel: CategoriesViewModel by viewModels()
     private lateinit var recyclerView: RecyclerView
 
@@ -27,7 +28,7 @@ class CategoriesFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val view = inflater.inflate(R.layout.fragment_categories, container, false)
-        binding = FragmentCategoriesBinding.bind(view)
+        val binding = FragmentCategoriesBinding.bind(view)
         return binding.root
     }
 
@@ -40,8 +41,10 @@ class CategoriesFragment: Fragment() {
     override fun onStart() {
         super.onStart()
         viewModel.getCategories()
-        viewModel.categories.observe(this) {
-            recyclerView.adapter = CategoriesAdapter(it.categories.toList())
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.categories.collect {
+                recyclerView.adapter = CategoriesAdapter(it.categories.toList())
+            }
         }
     }
 }

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,11 +15,11 @@ import br.com.lucasIsrael.androidrecipes.databinding.FragmentCategoryBinding
 import br.com.lucasIsrael.androidrecipes.meals.category.ui.adapter.CategoryAdapter
 import br.com.lucasIsrael.androidrecipes.meals.category.ui.viewmodels.CategoryViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class CategoryFragment : Fragment() {
 
-    private lateinit var binding: FragmentCategoryBinding
     private val viewModel: CategoryViewModel by viewModels()
     private lateinit var recyclerView: RecyclerView
     private val args: CategoryFragmentArgs by navArgs()
@@ -29,7 +30,7 @@ class CategoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val view = inflater.inflate(R.layout.fragment_category, container, false)
-        binding = FragmentCategoryBinding.bind(view)
+        val binding = FragmentCategoryBinding.bind(view)
         return binding.root
     }
 
@@ -43,8 +44,10 @@ class CategoryFragment : Fragment() {
         super.onStart()
         val categoryName = args.categoryName
         viewModel.getCategory(categoryName)
-        viewModel.meals.observe(this) {
-            recyclerView.adapter = CategoryAdapter(it)
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.meals.collect {
+                recyclerView.adapter = CategoryAdapter(it)
+            }
         }
     }
 }
