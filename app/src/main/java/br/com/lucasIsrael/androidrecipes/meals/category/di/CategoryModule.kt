@@ -5,7 +5,7 @@ import br.com.lucasIsrael.androidrecipes.meals.category.data.network.CategoryDat
 import br.com.lucasIsrael.androidrecipes.meals.category.data.network.CategoryDataSourceImpl
 import br.com.lucasIsrael.androidrecipes.meals.category.data.repository.CategoryRepository
 import br.com.lucasIsrael.androidrecipes.meals.category.data.repository.CategoryRepositoryImpl
-import br.com.lucasIsrael.androidrecipes.meals.core.config.Configs.BASE_URL
+import br.com.lucasIsrael.androidrecipes.common.config.Configs.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

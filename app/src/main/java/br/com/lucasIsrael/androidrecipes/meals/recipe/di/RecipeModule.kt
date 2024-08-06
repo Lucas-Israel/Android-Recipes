@@ -1,6 +1,6 @@
 package br.com.lucasIsrael.androidrecipes.meals.recipe.di
 
-import br.com.lucasIsrael.androidrecipes.meals.core.config.Configs.BASE_URL
+import br.com.lucasIsrael.androidrecipes.common.config.Configs.BASE_URL
 import br.com.lucasIsrael.androidrecipes.meals.recipe.data.api.RecipeApiService
 import br.com.lucasIsrael.androidrecipes.meals.recipe.data.network.RecipeDataSource
 import br.com.lucasIsrael.androidrecipes.meals.recipe.data.network.RecipeDataSourceImpl
