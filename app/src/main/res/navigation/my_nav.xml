@@ -31,4 +31,8 @@
             android:name="recipeId"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/drinkCategoriesFragment"
+        android:name="br.com.lucasIsrael.androidrecipes.drinks.categories.ui.fragment.DrinkCategoriesFragment"
+        android:label="DrinkCategoriesFragment" />
 </navigation>
