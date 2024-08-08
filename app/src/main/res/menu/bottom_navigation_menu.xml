@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottom_navigation_meals"
+        android:icon="@mipmap/meals_icon"
+        android:title="@string/bottom_navigation_meals_item_name" />
+    <item
+        android:id="@+id/bottom_navigation_drinks"
+        android:icon="@mipmap/drinks_icon"
+        android:title="@string/bottom_navigation_drinks_item_name" />
+</menu>

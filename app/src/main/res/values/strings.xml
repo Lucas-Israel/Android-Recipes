@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Android Recipes</string>
+    <string name="category_image">category image</string>
+    <string name="meal_image">meal image</string>
+    <string name="category">Category</string>
+    <string name="recipe_image">recipe image</string>
+    <string name="area">Area</string>
+    <string name="tags">Tags</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="ingr_measure">Measure</string>
+    <string name="category_name">Category name</string>
+    <string name="area_name">Area name</string>
+    <string name="tags_data">Tags data</string>
+    <string name="recipe_name">Recipe Name</string>
+    <string name="drink_name_data">Drink name data</string>
+    <string name="bottom_navigation_meals_item_name">Meals</string>
+    <string name="bottom_navigation_drinks_item_name">Drinks</string>
 </resources>

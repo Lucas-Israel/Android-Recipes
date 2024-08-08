@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/categoriesFragment">
+
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="br.com.lucasIsrael.androidrecipes.meals.categories.ui.fragment.CategoriesFragment"
+        android:label="CategoriesFragment" >
+        <action
+            android:id="@+id/action_categoriesFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="br.com.lucasIsrael.androidrecipes.meals.category.ui.fragment.CategoryFragment"
+        android:label="CategoryFragment" >
+        <argument
+            android:name="categoryName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_categoryFragment_to_recipeFragment"
+            app:destination="@id/recipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeFragment"
+        android:name="br.com.lucasIsrael.androidrecipes.meals.recipe.ui.fragment.RecipeFragment"
+        android:label="RecipeFragment" >
+        <argument
+            android:name="recipeId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/drinkCategoriesFragment"
+        android:name="br.com.lucasIsrael.androidrecipes.drinks.categories.ui.fragment.DrinkCategoriesFragment"
+        android:label="DrinkCategoriesFragment" >
+        <action
+            android:id="@+id/action_drinkCategoriesFragment_to_drinkCategoryFragment"
+            app:destination="@id/drinkCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/drinkCategoryFragment"
+        android:name="br.com.lucasIsrael.androidrecipes.drinks.category.ui.fragment.DrinkCategoryFragment"
+        android:label="DrinkCategoryFragment" >
+        <argument
+            android:name="categoryName"
+            app:argType="string" />
+    </fragment>
+</navigation>
