@@ -8,13 +8,6 @@
     android:orientation="vertical"
     tools:context=".common.activities.MainActivity">
 
-<!--    <androidx.fragment.app.FragmentContainerView-->
-<!--        android:id="@+id/main_fragment_container"-->
-<!--        android:name="br.com.lucasIsrael.androidrecipes.meals.categories.ui.views.fragments.CategoriesFragment"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:layout_weight="1"/>-->
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -23,6 +16,12 @@
         android:layout_weight="1"
         app:defaultNavHost="true"
         app:navGraph="@navigation/my_nav" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_navigation_menu"/>
 
 
 </LinearLayout>
