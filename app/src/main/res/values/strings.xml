@@ -12,4 +12,7 @@
     <string name="area_name">Area name</string>
     <string name="tags_data">Tags data</string>
     <string name="recipe_name">Recipe Name</string>
+    <string name="drink_name_data">Drink name data</string>
+    <string name="bottom_navigation_meals_item_name">Meals</string>
+    <string name="bottom_navigation_drinks_item_name">Drinks</string>
 </resources>
